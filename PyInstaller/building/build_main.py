@@ -174,6 +174,7 @@ def find_binary_dependencies(binaries, binding_redirects, import_packages):
     # Import collected packages to set up environment
     for package in import_packages:
         try:
+            print(package)
             __import__(package)
         except Exception:
             pass
