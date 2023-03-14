@@ -145,6 +145,7 @@ def find_binary_dependencies(binaries, binding_redirects, import_packages):
     :return: expanded list of binaries and then dependencies.
     """
     import os
+    import sys
 
     from PyInstaller.depend import bindepend
     from PyInstaller.building.build_main import logger
@@ -175,7 +176,7 @@ def find_binary_dependencies(binaries, binding_redirects, import_packages):
     print(f'Import packages collected: {import_packages}', file=sys.stderr)
     for package in import_packages:
         try:
-            print(f'importing package {package}', file=sys.stederr)
+            print(f'importing package {package}', file=sys.stderr)
             __import__(package)
         except Exception:
             pass
