@@ -172,9 +172,10 @@ def find_binary_dependencies(binaries, binding_redirects, import_packages):
         os.add_dll_directory = _pyi_add_dll_directory
 
     # Import collected packages to set up environment
+    print(f'Import packages collected: {import_packages}', file=sys.stderr)
     for package in import_packages:
         try:
-            logger.info(f'importing package {package}')
+            print(f'importing package {package}', file=sys.stederr)
             __import__(package)
         except Exception:
             pass
