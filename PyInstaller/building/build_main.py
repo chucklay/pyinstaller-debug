@@ -179,7 +179,9 @@ def find_binary_dependencies(binaries, binding_redirects, import_packages):
             print(f'importing package {package}', file=sys.stderr)
             __import__(package)
         except Exception:
-            pass
+            import traceback
+            print(traceback.format_exc(), file=sys.stderr)
+            # pass
 
     # Process extra search paths on Windows
     if compat.is_win:
